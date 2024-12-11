@@ -1,17 +1,21 @@
 import './ProductCard.css';
 
 function ProductCard() {
+  const image = "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg";
+  const title = "Product Title";
+  const price = 100;
+  
   return (
     <div className="product-card">
       <div className="product-image">
         <img
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          src={image}
           alt="product image"
         />
       </div>
       <div className="product-bottom">
-        <b className="product-title">Product Title</b>
-        <span className="product-price">100₺</span>
+        <b className="product-title">{title}</b>
+        <span className="product-price">{price}₺</span>
       </div>
     </div>
   );
