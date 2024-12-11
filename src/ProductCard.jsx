@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './ProductCard.css';
 
 function ProductCard(props) {
-  const { image, title, price } = props;
+  const { image, title, price, description, category } = props;
 
   return (
     <div className="product-card">
@@ -11,8 +11,10 @@ function ProductCard(props) {
       </div>
       <div className="product-bottom">
         <b className="product-title">{title}</b>
+        <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
       </div>
+      <div className="product-category">{category}</div>
     </div>
   );
 }
@@ -21,6 +23,8 @@ ProductCard.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
+  description: PropTypes.string,
+  category: PropTypes.string,
 };
 
 export default ProductCard;
