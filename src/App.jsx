@@ -1,16 +1,21 @@
-import React from "react";
+import { useState } from 'react';
 
 function App() {
+  const [state, setState] = useState('Ahmet Demir');
+
+  function handleClick() {
+    setState('Emin Başbayan');
+  }
+
+  console.log('component çalıştı!');
+
   return (
-    <React.Fragment>
-      <h1>App Component</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aut
-        ad dolorum nesciunt, obcaecati nam alias dolores nisi ab, quia
-        reprehenderit magnam quis quidem vel nemo exercitationem corrupti
-        dignissimos odit?
-      </p>
-    </React.Fragment>
+    <div className="app">
+      <p id="fullName">{state}</p>
+      <button id="myBtn" onClick={handleClick}>
+        İsmi Değiştir
+      </button>
+    </div>
   );
 }
 
