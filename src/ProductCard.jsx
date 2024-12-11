@@ -4,13 +4,13 @@ function ProductCard() {
   const image = "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg";
   const title = "Product Title";
   const price = 100;
-  
+
   return (
     <div className="product-card">
       <div className="product-image">
         <img
           src={image}
-          alt="product image"
+          alt={title}
         />
       </div>
       <div className="product-bottom">
