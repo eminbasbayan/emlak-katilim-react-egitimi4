@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import Button from '../UI/Button';
+
 import './ProductCard.css';
 
 function ProductCard(props) {
@@ -14,8 +16,9 @@ function ProductCard(props) {
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <button>Sepete Ekle</button>
-          <button>Ürünü Sil</button>
+          <Button />
+          <Button />
+          <Button />
         </div>
       </div>
       <div className="product-category">{category}</div>
