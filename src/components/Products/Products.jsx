@@ -1,9 +1,13 @@
 import ProductCard from './ProductCard';
 import { productsData } from '../../productsData';
+import { useState } from 'react';
 
 import './Products.css';
 
 function Products() {
+  const [title, setTitle] = useState('Title');
+  console.log("re-rendered!");
+  
   return (
     <div className="products">
       <h1>Products</h1>
@@ -12,7 +16,8 @@ function Products() {
           <ProductCard
             key={product.id}
             image={product.image}
-            title={product.title}
+            title={title}
+            setTitle={setTitle}
             price={product.price}
             description={product.description}
             category={product.category}

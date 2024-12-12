@@ -4,11 +4,13 @@ import Button from '../UI/Button';
 import './ProductCard.css';
 
 function ProductCard(props) {
-  const { image, title, price, description, category } = props;
+  const { image, title, price, description, category, setTitle } = props;
 
   function handleClick() {
-    console.log('güncellendi');
+    setTitle('Title Güncellendi!');
   }
+
+  console.log('re-rendered!');
 
   return (
     <div className="product-card">
@@ -20,15 +22,7 @@ function ProductCard(props) {
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <Button color="primary" size="xl" className="" onClick={handleClick}>
-            Ürünü Güncelle
-          </Button>
-          <Button color="success" size="lg">
-            <strong>Sepete Ekle</strong>
-          </Button>
-          <Button color="danger" size="sm">
-            Ürünü Sil
-          </Button>
+          <Button onClick={handleClick}>Title Güncelle</Button>
         </div>
       </div>
       <div className="product-category">{category}</div>
@@ -42,6 +36,7 @@ ProductCard.propTypes = {
   price: PropTypes.number,
   description: PropTypes.string,
   category: PropTypes.string,
+  setTitle: PropTypes.func,
 };
 
 export default ProductCard;
