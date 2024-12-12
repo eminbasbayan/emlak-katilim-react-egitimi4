@@ -6,6 +6,10 @@ import './ProductCard.css';
 function ProductCard(props) {
   const { image, title, price, description, category } = props;
 
+  function handleClick() {
+    console.log('güncellendi');
+  }
+
   return (
     <div className="product-card">
       <div className="product-image">
@@ -16,11 +20,15 @@ function ProductCard(props) {
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <Button>Ürünü Güncelle</Button>
-          <Button>
+          <Button color="primary" size="xl" className="" onClick={handleClick}>
+            Ürünü Güncelle
+          </Button>
+          <Button color="success" size="lg">
             <strong>Sepete Ekle</strong>
           </Button>
-          <Button>Ürünü Sil</Button>
+          <Button color="danger" size="sm">
+            Ürünü Sil
+          </Button>
         </div>
       </div>
       <div className="product-category">{category}</div>
