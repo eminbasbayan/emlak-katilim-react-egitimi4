@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../UI/Button';
 
 import './AddProduct.css';
@@ -18,6 +19,15 @@ function AddProduct(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    const isFormValid = Object.values(product).every(
+      (value) => value.trim() !== ''
+    );
+
+    if (!isFormValid) {
+      window.alert('Inputlar boş geçilemez.');
+      return;
+    }
 
     const newProduct = {
       ...product,
@@ -54,5 +64,9 @@ function AddProduct(props) {
     </form>
   );
 }
+
+AddProduct.propTypes = {
+  addNewProduct: PropTypes.func,
+};
 
 export default AddProduct;
