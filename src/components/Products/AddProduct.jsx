@@ -4,55 +4,41 @@ import Button from '../UI/Button';
 import './AddProduct.css';
 
 function AddProduct() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [image, setImage] = useState('');
-  const [category, setCategory] = useState('');
+  const [product, setProduct] = useState({
+    title: '',
+    description: '',
+    price: '',
+    image: '',
+    category: '',
+  });
 
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
+  function handleInputChange({ target: { name, value } }) {
+    setProduct({ ...product, [name]: value });
   }
 
-  function handleDescChange(event) {
-    setDescription(event.target.value);
-  }
-
-  function handlePriceChange(event) {
-    setPrice(event.target.value);
-  }
-
-  function handleImageChange(event) {
-    setImage(event.target.value);
-  }
-
-  function handleCategoryChange(event) {
-    setCategory(event.target.value);
-  }
-
-  console.log({ title, description, image, category, price });
+  console.log(product);
 
   return (
     <form className="add-product-form">
       <label>
         Title:
-        <input type="text" onChange={handleTitleChange} />
+        <input type="text" name="title" onChange={handleInputChange} />
       </label>
       <label>
         Description:
-        <input type="text" onChange={handleDescChange} />
+        <input type="text" name="description" onChange={handleInputChange} />
       </label>
       <label>
         Price:
-        <input type="number" onChange={handlePriceChange} />
+        <input type="number" name="price" onChange={handleInputChange} />
       </label>
       <label>
         Image URL:
-        <input type="text" onChange={handleImageChange} />
+        <input type="text" name="image" onChange={handleInputChange} />
       </label>
       <label>
         Category:
-        <input type="text" onChange={handleCategoryChange} />
+        <input type="text" name="category" onChange={handleInputChange} />
       </label>
       <Button color={'success'}>Yeni Ürün Ekle</Button>
     </form>
