@@ -36,29 +36,62 @@ function AddProduct(props) {
     };
 
     props.addNewProduct(newProduct);
+
+    setProduct({
+      title: '',
+      description: '',
+      price: '',
+      image: '',
+      category: '',
+    });
   }
 
   return (
     <form className="add-product-form" onSubmit={handleSubmit}>
       <label>
         Title:
-        <input type="text" name="title" onChange={handleInputChange} />
+        <input
+          type="text"
+          name="title"
+          value={product.title}
+          onChange={handleInputChange}
+        />
       </label>
       <label>
         Description:
-        <input type="text" name="description" onChange={handleInputChange} />
+        <input
+          type="text"
+          name="description"
+          value={product.description}
+          onChange={handleInputChange}
+        />
       </label>
       <label>
         Price:
-        <input type="number" name="price" onChange={handleInputChange} />
+        <input
+          type="number"
+          name="price"
+          value={product.price}
+          onChange={handleInputChange}
+        />
       </label>
       <label>
         Image URL:
-        <input type="text" name="image" onChange={handleInputChange} />
+        <input
+          type="text"
+          name="image"
+          value={product.image}
+          onChange={handleInputChange}
+        />
       </label>
       <label>
         Category:
-        <input type="text" name="category" onChange={handleInputChange} />
+        <input
+          type="text"
+          name="category"
+          value={product.category}
+          onChange={handleInputChange}
+        />
       </label>
       <Button color={'success'}>Yeni Ürün Ekle</Button>
     </form>
