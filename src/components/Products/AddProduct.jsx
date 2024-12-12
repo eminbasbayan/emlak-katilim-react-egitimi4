@@ -3,15 +3,51 @@ import PropTypes from 'prop-types';
 import Button from '../UI/Button';
 
 import './AddProduct.css';
+import ProductInput from './ProductInput';
+
+const productInputs = [
+  {
+    label: 'Title',
+    name: 'title',
+    type: 'text',
+    placeholder: 'Ürün ismi giriniz!',
+  },
+  {
+    label: 'Description',
+    name: 'description',
+    type: 'text',
+    placeholder: 'Ürün açıklaması giriniz!',
+  },
+  {
+    label: 'Price',
+    name: 'price',
+    type: 'number',
+    placeholder: 'Ürün fiyatı giriniz!',
+  },
+  {
+    label: 'Image URL',
+    name: 'image',
+    type: 'text',
+    placeholder: 'Ürün görseli giriniz!',
+  },
+  {
+    label: 'Category',
+    name: 'category',
+    type: 'text',
+    placeholder: 'Ürün kategorisi giriniz!',
+  },
+];
+
+const initialState = {
+  title: '',
+  description: '',
+  price: '',
+  image: '',
+  category: '',
+};
 
 function AddProduct(props) {
-  const [product, setProduct] = useState({
-    title: '',
-    description: '',
-    price: '',
-    image: '',
-    category: '',
-  });
+  const [product, setProduct] = useState(initialState);
 
   function handleInputChange({ target: { name, value } }) {
     setProduct({ ...product, [name]: value });
@@ -37,62 +73,19 @@ function AddProduct(props) {
 
     props.addNewProduct(newProduct);
 
-    setProduct({
-      title: '',
-      description: '',
-      price: '',
-      image: '',
-      category: '',
-    });
+    setProduct(initialState);
   }
 
   return (
     <form className="add-product-form" onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={product.title}
-          onChange={handleInputChange}
+      {productInputs.map((input, index) => (
+        <ProductInput
+          key={index}
+          {...input}
+          value={product[input.name]}
+          onInputChange={handleInputChange}
         />
-      </label>
-      <label>
-        Description:
-        <input
-          type="text"
-          name="description"
-          value={product.description}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Price:
-        <input
-          type="number"
-          name="price"
-          value={product.price}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Image URL:
-        <input
-          type="text"
-          name="image"
-          value={product.image}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Category:
-        <input
-          type="text"
-          name="category"
-          value={product.category}
-          onChange={handleInputChange}
-        />
-      </label>
+      ))}
       <Button color={'success'}>Yeni Ürün Ekle</Button>
     </form>
   );
