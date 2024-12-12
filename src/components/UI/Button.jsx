@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import "./Button.css";
+
 function Button(props) {
   console.log(props);
 
