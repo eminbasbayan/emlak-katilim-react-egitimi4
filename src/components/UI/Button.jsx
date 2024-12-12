@@ -1,5 +1,5 @@
-function Button(){
-    return <button>Sepete Ekle</button>
+function Button({ name = 'Button Name' }) {
+  return <button>{name}</button>;
 }
 
-export default Button
+export default Button;
