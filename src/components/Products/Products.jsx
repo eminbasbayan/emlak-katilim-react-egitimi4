@@ -4,16 +4,22 @@ import AddProduct from './AddProduct';
 import { productsData } from '../../productsData';
 
 import './Products.css';
+import { useState } from 'react';
 
 function Products() {
-  
+  const [products, setProducts] = useState(productsData);
+
+  function addNewProduct(product) {
+    setProducts([product, ...products]);
+  }
+
   return (
     <div className="products">
       <h1>Ürünler</h1>
       <h2>Yeni Ürün Ekle</h2>
-      <AddProduct />
+      <AddProduct addNewProduct={addNewProduct} />
       <div className="products-wrapper">
-        {productsData.map((product) => (
+        {products.map((product) => (
           <ProductCard
             key={product.id}
             image={product.image}

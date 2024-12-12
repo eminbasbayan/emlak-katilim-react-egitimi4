@@ -3,7 +3,7 @@ import Button from '../UI/Button';
 
 import './AddProduct.css';
 
-function AddProduct() {
+function AddProduct(props) {
   const [product, setProduct] = useState({
     title: '',
     description: '',
@@ -16,10 +16,20 @@ function AddProduct() {
     setProduct({ ...product, [name]: value });
   }
 
-  console.log(product);
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const newProduct = {
+      ...product,
+      id: Math.random(),
+      price: Number(product.price),
+    };
+
+    props.addNewProduct(newProduct);
+  }
 
   return (
-    <form className="add-product-form">
+    <form className="add-product-form" onSubmit={handleSubmit}>
       <label>
         Title:
         <input type="text" name="title" onChange={handleInputChange} />
