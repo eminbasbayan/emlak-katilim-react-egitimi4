@@ -30,6 +30,13 @@
   -webkit-box-orient: vertical;
 }
 
+.product-card .buttons{
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  margin-top: 6px;
+}
+
 .product-category {
   position: absolute;
   top: 6px;
@@ -38,3 +45,4 @@
   padding: 8px;
   border-radius: 8px;
 }
+
