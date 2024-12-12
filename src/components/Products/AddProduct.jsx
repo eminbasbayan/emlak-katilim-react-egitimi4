@@ -36,6 +36,12 @@ const productInputs = [
     type: 'text',
     placeholder: 'Ürün kategorisi giriniz!',
   },
+  {
+    label: 'Rating',
+    name: 'rating',
+    type: 'number',
+    placeholder: 'Ürün rating giriniz!',
+  },
 ];
 
 const initialState = {
@@ -44,6 +50,7 @@ const initialState = {
   price: '',
   image: '',
   category: '',
+  rating: '',
 };
 
 function AddProduct(props) {
@@ -69,6 +76,9 @@ function AddProduct(props) {
       ...product,
       id: Math.random(),
       price: Number(product.price),
+      rating: {
+        rate: product.rating,
+      },
     };
 
     props.addNewProduct(newProduct);

@@ -6,7 +6,7 @@ import './ProductCard.css';
 
 function ProductCard(props) {
   const [titleState, setTitleState] = useState(props.title);
-  const { image, price, description, category } = props;
+  const { image, price, description, category, rating } = props;
 
   function handleClick() {
     setTitleState('Title Güncellendi!');
@@ -26,6 +26,7 @@ function ProductCard(props) {
         </div>
       </div>
       <div className="product-category">{category}</div>
+      <div className="product-rating">{rating}</div>
     </div>
   );
 }
@@ -36,6 +37,7 @@ ProductCard.propTypes = {
   price: PropTypes.number,
   description: PropTypes.string,
   category: PropTypes.string,
+  rating: PropTypes.string,
   setTitle: PropTypes.func,
 };
 

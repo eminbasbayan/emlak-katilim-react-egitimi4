@@ -27,6 +27,7 @@ function Products() {
             price={product.price}
             description={product.description}
             category={product.category}
+            rating={product.rating.rate}
           />
         ))}
       </div>

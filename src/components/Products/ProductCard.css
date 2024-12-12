@@ -46,3 +46,12 @@
   border-radius: 8px;
 }
 
+.product-rating {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  background-color: #ffe83a;
+  padding: 8px;
+  border-radius: 8px;
+}
+
