@@ -16,9 +16,11 @@ function ProductCard(props) {
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <Button />
-          <Button name="Sepete Ekle" />
-          <Button name="Ürünü Sil" />
+          <Button>Ürünü Güncelle</Button>
+          <Button>
+            <strong>Sepete Ekle</strong>
+          </Button>
+          <Button>Ürünü Sil</Button>
         </div>
       </div>
       <div className="product-category">{category}</div>
