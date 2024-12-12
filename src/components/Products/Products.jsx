@@ -13,6 +13,11 @@ function Products() {
     setProducts([product, ...products]);
   }
 
+  function handleDeleteItem(productId) {
+    const filteredProducts = products.filter((item) => item.id !== productId);
+    setProducts(filteredProducts);
+  }
+
   return (
     <div className="products">
       <h1>Ürünler</h1>
@@ -22,12 +27,14 @@ function Products() {
         {products.map((product) => (
           <ProductCard
             key={product.id}
+            id={product.id}
             image={product.image}
             title={product.title}
             price={product.price}
             description={product.description}
             category={product.category}
             rating={product.rating.rate}
+            onDeleteItem={handleDeleteItem}
           />
         ))}
       </div>

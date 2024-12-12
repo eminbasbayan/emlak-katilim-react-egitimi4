@@ -6,7 +6,8 @@ import './ProductCard.css';
 
 function ProductCard(props) {
   const [titleState, setTitleState] = useState(props.title);
-  const { image, price, description, category, rating } = props;
+  const { id, image, price, description, category, rating, onDeleteItem } =
+    props;
 
   function handleClick() {
     setTitleState('Title Güncellendi!');
@@ -23,6 +24,9 @@ function ProductCard(props) {
         <span className="product-price">{price}₺</span>
         <div className="buttons">
           <Button onClick={handleClick}>Title Güncelle</Button>
+          <Button color="danger" onClick={()=> onDeleteItem(id)}>
+            Ürünü Sil
+          </Button>
         </div>
       </div>
       <div className="product-category">{category}</div>
@@ -32,13 +36,15 @@ function ProductCard(props) {
 }
 
 ProductCard.propTypes = {
+  id: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
   category: PropTypes.string,
-  rating: PropTypes.string,
+  rating: PropTypes.number,
   setTitle: PropTypes.func,
+  onDeleteItem: PropTypes.func,
 };
 
 export default ProductCard;
