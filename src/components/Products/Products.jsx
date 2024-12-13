@@ -20,12 +20,14 @@ function Products() {
     setProducts(filteredProducts);
   }
 
-  function fetchProducts() {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error(err))
-      .finally(() => console.log('İşlem tamamlandı!'));
+  async function fetchProducts() {
+    try {
+      const res = await fetch('https://fakestoreapi.com/products');
+      const data = await res.json();
+      setProducts(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
