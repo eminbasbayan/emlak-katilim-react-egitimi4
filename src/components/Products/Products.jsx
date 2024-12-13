@@ -20,8 +20,8 @@ function Products() {
 
   return (
     <div className="products">
-      <h1>Ürünler</h1>
-      <h2>Yeni Ürün Ekle</h2>
+      <h1 className='text-4xl font-bold'>Ürünler</h1>
+      <h2 className='text-2xl font-bold'>Yeni Ürün Ekle</h2>
       <AddProduct addNewProduct={addNewProduct} />
       <div className="products-wrapper">
         {products.map((product) => (
