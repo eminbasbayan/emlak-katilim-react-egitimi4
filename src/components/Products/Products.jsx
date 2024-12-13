@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import AddProduct from './AddProduct';
 import Button from '../UI/Button';
@@ -22,8 +22,8 @@ function Products() {
   }
 
   async function fetchProducts() {
-    setIsLoading(true);
     setProducts([]);
+    setIsLoading(true);
     try {
       const res = await fetch('https://fakestoreapi.com/products');
       const data = await res.json();
@@ -33,6 +33,10 @@ function Products() {
     }
     setIsLoading(false);
   }
+
+  useEffect(() => {
+    fetchProducts();
+  }, [isShowModal]);
 
   return (
     <div className="products">
