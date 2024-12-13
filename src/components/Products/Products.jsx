@@ -5,6 +5,7 @@ import { productsData } from '../../productsData';
 
 import './Products.css';
 import { useState } from 'react';
+import Modal from '../UI/Modal';
 
 function Products() {
   const [products, setProducts] = useState(productsData);
@@ -38,6 +39,7 @@ function Products() {
           />
         ))}
       </div>
+      <Modal />
     </div>
   );
 }
