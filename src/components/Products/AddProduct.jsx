@@ -68,7 +68,7 @@ function AddProduct(props) {
     );
 
     if (!isFormValid) {
-      window.alert('Inputlar boş geçilemez.');
+      props.setIsShowModal(true);
       return;
     }
 
@@ -103,6 +103,7 @@ function AddProduct(props) {
 
 AddProduct.propTypes = {
   addNewProduct: PropTypes.func,
+  setIsShowModal: PropTypes.func,
 };
 
 export default AddProduct;

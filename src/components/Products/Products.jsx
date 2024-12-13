@@ -9,6 +9,7 @@ import Modal from '../UI/Modal';
 
 function Products() {
   const [products, setProducts] = useState(productsData);
+  const [isShowModal, setIsShowModal] = useState(false);
 
   function addNewProduct(product) {
     setProducts([product, ...products]);
@@ -21,9 +22,12 @@ function Products() {
 
   return (
     <div className="products">
-      <h1 className='text-4xl font-bold'>Ürünler</h1>
-      <h2 className='text-2xl font-bold'>Yeni Ürün Ekle</h2>
-      <AddProduct addNewProduct={addNewProduct} />
+      <h1 className="text-4xl font-bold">Ürünler</h1>
+      <h2 className="text-2xl font-bold">Yeni Ürün Ekle</h2>
+      <AddProduct
+        addNewProduct={addNewProduct}
+        setIsShowModal={setIsShowModal}
+      />
       <div className="products-wrapper">
         {products.map((product) => (
           <ProductCard
@@ -39,7 +43,13 @@ function Products() {
           />
         ))}
       </div>
-      <Modal />
+      {isShowModal && (
+        <Modal
+          title="Inputlar boş geçilemez!"
+          description="Form inputlarının hepsi dolu olmalı!"
+          setIsShowModal={setIsShowModal}
+        />
+      )}
     </div>
   );
 }
