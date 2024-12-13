@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="app container mx-auto">
       <section>
-       <HomePage />
+  {/*      <HomePage /> */}
        <ProductsPage />        
        <AboutPage />        
        <ContactPage />        
