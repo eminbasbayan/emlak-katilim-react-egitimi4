@@ -9,11 +9,18 @@ const CartProvider = (props) => {
     setCartItems((prevCartItems) => [product, ...prevCartItems]);
   }
 
+  function deleteFromCart(cartItemId) {
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter((item) => item.id !== cartItemId)
+    );
+  }
+
   return (
     <CartContext.Provider
       value={{
+        cartItems,
         addToCart,
-        cartItems
+        deleteFromCart,
       }}
     >
       {props.children}

@@ -4,7 +4,7 @@ import { FaTrash } from 'react-icons/fa';
 import { CartContext } from '../context/CartContext';
 
 const CartPage = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, deleteFromCart } = useContext(CartContext);
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -47,7 +47,11 @@ const CartPage = () => {
                       </span>
                     </div>
                   </div>
-                  <button className="text-red-500 hover:text-red-700 ml-4">
+                  <button
+                    className="text-red-500 hover:text-red-700 
+                  ml-4"
+                    onClick={() => deleteFromCart(id)}
+                  >
                     <FaTrash size={20} />
                   </button>
                 </div>
