@@ -1,10 +1,16 @@
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
     <div className="app container mx-auto">
       <section>
-       <HomePage />        
+       <HomePage />
+       <ProductsPage />        
+       <AboutPage />        
+       <ContactPage />        
       </section>
     </div>
   );

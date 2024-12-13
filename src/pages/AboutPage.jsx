@@ -1,7 +1,9 @@
 const AboutPage = () => {
   return (
-    <div>AboutPage</div>
-  )
-}
+    <div className="about-page">
+      <h1 className="text-3xl font-bold">About Page</h1>
+    </div>
+  );
+};
 
-export default AboutPage
+export default AboutPage;
