@@ -1,30 +1,32 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../UI/Button';
 
 import './ProductCard.css';
 
 function ProductCard(props) {
-  const [titleState, setTitleState] = useState(props.title);
-  const { id, image, price, description, category, rating, onDeleteItem } =
-    props;
-
-  function handleClick() {
-    setTitleState('Title Güncellendi!');
-  }
+  const {
+    id,
+    title,
+    image,
+    price,
+    description,
+    category,
+    rating,
+    onDeleteItem,
+  } = props;
 
   return (
     <div className="product-card">
       <div className="product-image">
-        <img src={image} alt={titleState} />
+        <img src={image} alt={title} />
       </div>
       <div className="product-bottom">
-        <b className="product-title">{titleState}</b>
+        <b className="product-title">{title}</b>
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <Button onClick={handleClick}>Title Güncelle</Button>
-          <Button color="danger" onClick={()=> onDeleteItem(id)}>
+          <Button>Sepete Ekle</Button>
+          <Button color="danger" onClick={() => onDeleteItem(id)}>
             Ürünü Sil
           </Button>
         </div>
