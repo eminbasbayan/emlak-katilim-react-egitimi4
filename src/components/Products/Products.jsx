@@ -10,6 +10,7 @@ import './Products.css';
 function Products() {
   const [products, setProducts] = useState([]);
   const [isShowModal, setIsShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   function addNewProduct(product) {
     setProducts([product, ...products]);
@@ -21,6 +22,8 @@ function Products() {
   }
 
   async function fetchProducts() {
+    setIsLoading(true);
+    setProducts([]);
     try {
       const res = await fetch('https://fakestoreapi.com/products');
       const data = await res.json();
@@ -28,6 +31,7 @@ function Products() {
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   }
 
   return (
@@ -38,7 +42,12 @@ function Products() {
         addNewProduct={addNewProduct}
         setIsShowModal={setIsShowModal}
       />
-      <Button onClick={fetchProducts}>Ürünleri Getir</Button>
+      <Button onClick={fetchProducts} className="mb-4">
+        Ürünleri Getir
+      </Button>
+      {isLoading && (
+        <p className="font-bold text-lg mb-4">Ürünler Yükleniyor...</p>
+      )}
       <div className="products-wrapper">
         {products.map((product) => (
           <ProductCard
