@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 const Modal = ({
@@ -9,7 +10,7 @@ const Modal = ({
     setIsShowModal(false);
   }
 
-  return (
+  return createPortal(
     <div className="modal overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div className="relative p-4 w-full max-w-2xl max-h-full m-auto z-50">
         {/* Modal content  */}
@@ -68,8 +69,12 @@ const Modal = ({
           </div>
         </div>
       </div>
-      <div className='empty-div w-full h-full bg-slate-400 absolute top-0 left-0 opacity-50' onClick={handleCloseModal}></div>
-    </div>
+      <div
+        className="empty-div w-full h-full bg-slate-400 absolute top-0 left-0 opacity-50"
+        onClick={handleCloseModal}
+      ></div>
+    </div>,
+    document.getElementById('modal')
   );
 };
 
