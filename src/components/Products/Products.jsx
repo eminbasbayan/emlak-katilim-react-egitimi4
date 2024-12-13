@@ -34,9 +34,9 @@ function Products() {
     setIsLoading(false);
   }
 
-  useEffect(() => {
+/*   useEffect(() => {
     fetchProducts();
-  }, [isShowModal]);
+  }, []); */
 
   return (
     <div className="products">
@@ -72,6 +72,7 @@ function Products() {
           title="Inputlar boş geçilemez!"
           description="Form inputlarının hepsi dolu olmalı!"
           setIsShowModal={setIsShowModal}
+          fetchProducts={fetchProducts}
         />
       )}
     </div>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -6,19 +6,28 @@ const Modal = ({
   title = 'Modal Title',
   description = 'Modal Description',
   setIsShowModal,
+  /*   fetchProducts, */
 }) => {
+  const [count, setCount] = useState(0);
+
   function handleCloseModal() {
     setIsShowModal(false);
   }
 
   useEffect(() => {
-    console.log("component DOM'a ilk kez yüklendiğinde çalışır!");
-  }, []);
+    console.log("modal DOM'a yüklendi!");
 
-  useEffect(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setCount(i);
+      console.log(i);
+    }, 1000);
+
     // clean-up function
     return () => {
-      console.log("component DOM'dan kaldırıldığında çalışır!");
+      console.log("modal DOM'dan kaldırıldığında çalışır!");
+      clearInterval(id);
     };
   }, []);
 
@@ -30,7 +39,7 @@ const Modal = ({
           {/*  Modal header */}
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-              {title}
+              {title} Sayaç: {count}
             </h3>
             <button
               type="button"
