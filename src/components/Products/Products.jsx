@@ -34,9 +34,9 @@ function Products() {
     setIsLoading(false);
   }
 
-/*   useEffect(() => {
+  useEffect(() => {
     fetchProducts();
-  }, []); */
+  }, []);
 
   return (
     <div className="products">

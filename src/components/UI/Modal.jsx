@@ -6,7 +6,6 @@ const Modal = ({
   title = 'Modal Title',
   description = 'Modal Description',
   setIsShowModal,
-  /*   fetchProducts, */
 }) => {
   const [count, setCount] = useState(0);
 
