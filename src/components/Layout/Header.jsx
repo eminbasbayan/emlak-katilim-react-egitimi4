@@ -10,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-md relative mb-10">
+    <header className="bg-white shadow-md sticky top-0 z-50 mb-10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -64,9 +64,10 @@ const Header = () => {
           <div className="flex items-center">
             <Link
               to="/cart"
-              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100"
+              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex"
             >
-              <FaShoppingCart className="text-xl" />
+              <FaShoppingCart className="text-xl" /> 
+              <span>0</span>
             </Link>
           </div>
         </div>
