@@ -1,9 +1,11 @@
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItems } = useContext(CartContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -64,10 +66,10 @@ const Header = () => {
           <div className="flex items-center">
             <Link
               to="/cart"
-              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex"
+              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
             >
-              <FaShoppingCart className="text-xl" /> 
-              <span>0</span>
+              <FaShoppingCart className="text-xl" />
+              <span>{cartItems.length}</span>
             </Link>
           </div>
         </div>

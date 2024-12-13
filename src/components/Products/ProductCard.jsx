@@ -2,18 +2,14 @@ import PropTypes from 'prop-types';
 import Button from '../UI/Button';
 
 import './ProductCard.css';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 function ProductCard(props) {
-  const {
-    id,
-    title,
-    image,
-    price,
-    description,
-    category,
-    rating,
-    onDeleteItem,
-  } = props;
+  const { onDeleteItem, ...product } = props;
+  const { id, title, image, price, description, category, rating } = product;
+
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="product-card">
@@ -25,7 +21,7 @@ function ProductCard(props) {
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <Button>Sepete Ekle</Button>
+          <Button onClick={() => addToCart(product)}>Sepete Ekle</Button>
           <Button color="danger" onClick={() => onDeleteItem(id)}>
             Ürünü Sil
           </Button>

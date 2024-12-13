@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { CartContext } from '../../context/CartContext';
 
 import './Button.css';
 
@@ -12,16 +10,13 @@ function Button({
   onClick,
   children,
 }) {
-  const { fullName } = useContext(CartContext);
-
-
   return (
     <button
       className={`btn btn-${color} btn-${size} ${className}`}
       style={style}
       onClick={onClick}
     >
-      {fullName}
+      {children}
     </button>
   );
 }

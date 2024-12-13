@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import Header from '../components/Layout/Header';
 import { FaTrash } from 'react-icons/fa';
+import { CartContext } from '../context/CartContext';
 
 const CartPage = () => {
+  const { cartItems } = useContext(CartContext);
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -16,64 +19,39 @@ const CartPage = () => {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-md p-6 mb-4">
               {/* Örnek Ürün */}
-              <div className="flex items-center border-b border-gray-200 pb-4 mb-4">
-                <img
-                  src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-                  alt="Ürün"
-                  className="w-24 h-24 object-contain"
-                />
-                <div className="flex-1 ml-4">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    Fjallraven Backpack
-                  </h3>
-                  <p className="text-gray-600">Kategori: Çanta</p>
-                  <div className="flex items-center mt-2">
-                    <select className="border rounded-md px-2 py-1 mr-4">
-                      {[1, 2, 3, 4, 5].map((num) => (
-                        <option key={num} value={num}>
-                          {num}
-                        </option>
-                      ))}
-                    </select>
-                    <span className="text-lg font-semibold text-indigo-600">
-                      1.299,90 ₺
-                    </span>
+              {cartItems.map(({ id, image, title, category, price }) => (
+                <div
+                  className="flex items-center border-b border-gray-200 pb-4 mb-4"
+                  key={id}
+                >
+                  <img
+                    src={image}
+                    alt="Ürün"
+                    className="w-24 h-24 object-contain"
+                  />
+                  <div className="flex-1 ml-4">
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {title}
+                    </h3>
+                    <p className="text-gray-600">Kategori: {category}</p>
+                    <div className="flex items-center mt-2">
+                      <select className="border rounded-md px-2 py-1 mr-4">
+                        {[1, 2, 3, 4, 5].map((num) => (
+                          <option key={num} value={num}>
+                            {num}
+                          </option>
+                        ))}
+                      </select>
+                      <span className="text-lg font-semibold text-indigo-600">
+                        {price} $
+                      </span>
+                    </div>
                   </div>
+                  <button className="text-red-500 hover:text-red-700 ml-4">
+                    <FaTrash size={20} />
+                  </button>
                 </div>
-                <button className="text-red-500 hover:text-red-700 ml-4">
-                  <FaTrash size={20} />
-                </button>
-              </div>
-
-              {/* Diğer Örnek Ürün */}
-              <div className="flex items-center">
-                <img
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                  alt="Ürün"
-                  className="w-24 h-24 object-contain"
-                />
-                <div className="flex-1 ml-4">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    Mens Casual Premium
-                  </h3>
-                  <p className="text-gray-600">Kategori: Giyim</p>
-                  <div className="flex items-center mt-2">
-                    <select className="border rounded-md px-2 py-1 mr-4">
-                      {[1, 2, 3, 4, 5].map((num) => (
-                        <option key={num} value={num}>
-                          {num}
-                        </option>
-                      ))}
-                    </select>
-                    <span className="text-lg font-semibold text-indigo-600">
-                      599,90 ₺
-                    </span>
-                  </div>
-                </div>
-                <button className="text-red-500 hover:text-red-700 ml-4">
-                  <FaTrash size={20} />
-                </button>
-              </div>
+              ))}
             </div>
           </div>
 
