@@ -1,4 +1,5 @@
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const Header = () => {
@@ -33,40 +34,40 @@ const Header = () => {
 
           {/* Navigation Links - Desktop */}
           <nav className="hidden md:flex space-x-8">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
               Ana Sayfa
-            </a>
-            <a
-              href="/products"
+            </Link>
+            <Link
+              to="/products"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
               Ürünler
-            </a>
-            <a
-              href="/about"
+            </Link>
+            <Link
+              to="/about"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
               Hakkımızda
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
               İletişim
-            </a>
+            </Link>
           </nav>
 
           {/* Shopping Cart */}
           <div className="flex items-center">
-            <a
-              href="/cart"
+            <Link
+              to="/cart"
               className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100"
             >
               <FaShoppingCart className="text-xl" />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -74,30 +75,30 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 bg-white border-t">
             <div className="flex flex-col space-y-4">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 Ana Sayfa
-              </a>
-              <a
-                href="/products"
+              </Link>
+              <Link
+                to="/products"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 Ürünler
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
+                to="/about"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 Hakkımızda
-              </a>
-              <a
-                href="/contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 İletişim
-              </a>
+              </Link>
             </div>
           </nav>
         )}

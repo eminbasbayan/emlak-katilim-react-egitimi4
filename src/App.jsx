@@ -3,6 +3,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
+import Header from './components/Layout/Header';
 
 const router = createBrowserRouter([
   {
