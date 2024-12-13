@@ -1,14 +1,14 @@
-import ProductCard from './ProductCard';
-import AddProduct from './AddProduct';
+import { useState } from 'react';
 
-import { productsData } from '../../productsData';
+import AddProduct from './AddProduct';
+import Button from '../UI/Button';
+import Modal from '../UI/Modal';
+import ProductCard from './ProductCard';
 
 import './Products.css';
-import { useState } from 'react';
-import Modal from '../UI/Modal';
 
 function Products() {
-  const [products, setProducts] = useState(productsData);
+  const [products, setProducts] = useState([]);
   const [isShowModal, setIsShowModal] = useState(false);
 
   function addNewProduct(product) {
@@ -20,6 +20,14 @@ function Products() {
     setProducts(filteredProducts);
   }
 
+  function fetchProducts() {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error(err))
+      .finally(() => console.log('İşlem tamamlandı!'));
+  }
+
   return (
     <div className="products">
       <h1 className="text-4xl font-bold">Ürünler</h1>
@@ -28,6 +36,7 @@ function Products() {
         addNewProduct={addNewProduct}
         setIsShowModal={setIsShowModal}
       />
+      <Button onClick={fetchProducts}>Ürünleri Getir</Button>
       <div className="products-wrapper">
         {products.map((product) => (
           <ProductCard
