@@ -18,6 +18,7 @@ const LoginPage = () => {
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(loginSchema),
@@ -48,6 +49,7 @@ const LoginPage = () => {
                 id="email"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                 {...register('email')}
+                onBlur={() => trigger('email')}
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600">
@@ -68,6 +70,7 @@ const LoginPage = () => {
                 id="password"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                 {...register('password')}
+                onBlur={() => trigger('password')}
               />
               {errors.password && (
                 <p className="mt-1 text-sm text-red-600">
