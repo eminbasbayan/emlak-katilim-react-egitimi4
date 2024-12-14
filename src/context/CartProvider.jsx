@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
-import { CartContext } from './CartContext';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+import toast from 'react-hot-toast';
+import { CartContext } from './CartContext';
 
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
@@ -15,6 +16,7 @@ const CartProvider = (props) => {
         }
         return cItem;
       });
+      toast.success('Ürün miktarı arttırıldı!');
       return setCartItems(newCartItems);
     }
 
@@ -22,6 +24,7 @@ const CartProvider = (props) => {
       { ...product, quantity: 1 },
       ...prevCartItems,
     ]);
+    toast.success('Ürün sepete eklendi!');
   }
 
   function deleteFromCart(cartItemId) {

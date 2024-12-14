@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
@@ -32,6 +34,7 @@ function App() {
   return (
     <div className="app container mx-auto">
       <RouterProvider router={router} />
+      <Toaster />
     </div>
   );
 }
