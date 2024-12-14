@@ -3,6 +3,7 @@ import Button from './UI/Button';
 
 const Counter = () => {
   const { count, arttir, azalt, reset } = useCounter(10);
+  
   return (
     <div className="counter">
       <p>Sayaç: {count}</p>

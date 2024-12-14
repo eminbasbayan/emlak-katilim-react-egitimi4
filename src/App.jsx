@@ -8,6 +8,7 @@ import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext';
+import Counter from './components/Counter';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,7 @@ function App() {
   };
   return (
     <div className="app container mx-auto" style={appStyle}>
+      <Counter />
       <RouterProvider router={router} />
       <Toaster />
     </div>
