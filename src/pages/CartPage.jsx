@@ -1,12 +1,12 @@
-import { useContext, Fragment } from 'react';
+import { Fragment } from 'react';
 import Header from '../components/Layout/Header';
 import { FaTrash } from 'react-icons/fa';
-import { CartContext } from '../context/CartContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteFromCart } from '../redux/slices/cartSlice';
 
 const CartPage = () => {
-  const { cartItems, deleteFromCart } = useContext(CartContext);
-
-  console.log(cartItems);
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const cartTotals = cartItems.reduce(
     (toplam, item) => toplam + item.price * item.quantity,
@@ -54,7 +54,7 @@ const CartPage = () => {
                         <button
                           className="text-red-500 hover:text-red-700 
                      ml-4"
-                          onClick={() => deleteFromCart(id)}
+                          onClick={() => dispatch(deleteFromCart({ id }))}
                         >
                           <FaTrash size={20} />
                         </button>

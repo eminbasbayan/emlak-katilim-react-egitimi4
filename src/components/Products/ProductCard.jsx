@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import Button from '../UI/Button';
 
 import './ProductCard.css';
-import { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
+import { addToCart } from '../../redux/slices/cartSlice';
+import { useDispatch } from 'react-redux';
 
 function ProductCard(props) {
   const { onDeleteItem, ...product } = props;
   const { id, title, image, price, description, category, rating } = product;
-
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   return (
     <div className="product-card">
@@ -21,7 +20,9 @@ function ProductCard(props) {
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">
-          <Button onClick={() => addToCart(product)}>Sepete Ekle</Button>
+          <Button onClick={() => dispatch(addToCart(product))}>
+            Sepete Ekle
+          </Button>
           <Button color="danger" onClick={() => onDeleteItem(id)}>
             Ürünü Sil
           </Button>

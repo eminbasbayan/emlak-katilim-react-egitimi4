@@ -1,13 +1,12 @@
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { CartContext } from '../../context/CartContext';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../redux/slices/themeSlice';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useSelector((state) => state.cart);
   const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
