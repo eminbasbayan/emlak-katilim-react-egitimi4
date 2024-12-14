@@ -12,6 +12,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
 
 const router = createBrowserRouter([
   {
@@ -39,16 +40,22 @@ const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
-        path: '/login',
+        path: '/product/:productId',
+        element: <ProductDetailsPage />,
+      },
+    ],
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: 'login',
         element: <LoginPage />,
       },
       {
-        path: '/register',
+        path: 'register',
         element: <RegisterPage />,
-      },
-      {
-        path: '/product/:productId',
-        element: <ProductDetailsPage />,
       },
     ],
   },

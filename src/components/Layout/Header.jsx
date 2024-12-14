@@ -70,6 +70,12 @@ const Header = () => {
           <div className="flex items-center">
             <button
               className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
+              onClick={() => navigate('/auth/login')}
+            >
+              <span>Login</span>
+            </button>
+            <button
+              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
               onClick={() => dispatch(toggleTheme())}
             >
               <span>{theme}</span>

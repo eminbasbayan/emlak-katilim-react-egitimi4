@@ -74,7 +74,7 @@ const RegisterPage = () => {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Zaten hesabınız var mı?{' '}
-              <Link to="/login" className="text-indigo-600 hover:text-indigo-500">
+              <Link to="/auth/login" className="text-indigo-600 hover:text-indigo-500">
                 Giriş Yap
               </Link>
             </p>

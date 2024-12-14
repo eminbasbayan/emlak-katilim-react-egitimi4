@@ -118,7 +118,7 @@ const LoginPage = () => {
             <p className="text-sm text-gray-600">
               Hesabınız yok mu?{' '}
               <Link
-                to="/register"
+                to="/auth/register"
                 className="text-indigo-600 hover:text-indigo-500"
               >
                 Kayıt Ol
