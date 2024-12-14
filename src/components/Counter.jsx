@@ -1,22 +1,20 @@
-import { useSelector } from 'react-redux';
-import useCounter from '../hooks/useCounter';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from './UI/Button';
+import { arttir, azalt, reset } from '../redux/counterSlice';
 
 const Counter = () => {
   const { count } = useSelector((state) => state.counter);
-
-
-  const { arttir, azalt, reset } = useCounter(10);
+  const dispatch = useDispatch();
 
   return (
     <div className="counter">
       <p>Sayaç: {count}</p>
       <div className="flex gap-4">
-        <Button onClick={arttir}>Arttır</Button>
-        <Button onClick={azalt} color="danger">
+        <Button onClick={() => dispatch(arttir())}>Arttır</Button>
+        <Button onClick={() => dispatch(azalt())} color="danger">
           Azalt
         </Button>
-        <Button onClick={reset} color="success">
+        <Button onClick={() => dispatch(reset())} color="success">
           Reset
         </Button>
       </div>
