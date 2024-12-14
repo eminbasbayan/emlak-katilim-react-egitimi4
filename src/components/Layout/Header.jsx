@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../redux/slices/themeSlice';
@@ -40,30 +40,46 @@ const Header = () => {
 
           {/* Navigation Links - Desktop */}
           <nav className="hidden md:flex space-x-8">
-            <Link
+            <NavLink
               to="/"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className={({ isActive }) =>
+                `text-gray-600 hover:text-blue-600 transition-colors ${
+                  isActive && '!text-blue-600'
+                }`
+              }
             >
               Ana Sayfa
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/products"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className={({ isActive }) =>
+                `text-gray-600 hover:text-blue-600 transition-colors ${
+                  isActive && '!text-blue-600'
+                }`
+              }
             >
               Ürünler
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/about"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className={({ isActive }) =>
+                `text-gray-600 hover:text-blue-600 transition-colors ${
+                  isActive && '!text-blue-600'
+                }`
+              }
             >
               Hakkımızda
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/contact"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className={({ isActive }) =>
+                `text-gray-600 hover:text-blue-600 transition-colors ${
+                  isActive && '!text-blue-600'
+                }`
+              }
             >
               İletişim
-            </Link>
+            </NavLink>
           </nav>
 
           {/* Shopping Cart */}
@@ -100,30 +116,30 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 bg-white border-t">
             <div className="flex flex-col space-y-4">
-              <Link
+              <NavLink
                 to="/"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 Ana Sayfa
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/products"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 Ürünler
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/about"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 Hakkımızda
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/contact"
                 className="text-gray-600 hover:text-blue-600 transition-colors px-4"
               >
                 İletişim
-              </Link>
+              </NavLink>
             </div>
           </nav>
         )}
