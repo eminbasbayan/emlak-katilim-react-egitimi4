@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Button from './UI/Button';
-import { arttir, azalt, reset } from '../redux/counterSlice';
+import { arttir, azalt, reset } from '../redux/slices/counterSlice';
 
 const Counter = () => {
   const { count } = useSelector((state) => state.counter);

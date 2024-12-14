@@ -2,12 +2,14 @@ import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
-import { ThemeContext } from '../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../../redux/slices/themeSlice';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useContext(CartContext);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -68,7 +70,7 @@ const Header = () => {
           <div className="flex items-center">
             <button
               className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
-              onClick={toggleTheme}
+              onClick={() => dispatch(toggleTheme())}
             >
               <span>{theme}</span>
             </button>

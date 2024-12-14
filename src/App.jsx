@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import { Toaster } from 'react-hot-toast';
 
 import AboutPage from './pages/AboutPage';
@@ -6,8 +8,6 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
-import { useContext } from 'react';
-import { ThemeContext } from './context/ThemeContext';
 import Counter from './components/Counter';
 
 const router = createBrowserRouter([
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useSelector((state) => state.theme);
 
   const appStyle = {
     backgroundColor: theme === 'light' ? '#ffffff' : '#1F2937',
