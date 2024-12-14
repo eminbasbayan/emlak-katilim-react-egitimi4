@@ -8,7 +8,8 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
-import Counter from './components/Counter';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
     path: '/cart',
     element: <CartPage />,
   },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
+  },
 ]);
 
 function App() {
@@ -43,7 +52,6 @@ function App() {
   };
   return (
     <div className="app container mx-auto" style={appStyle}>
-      <Counter />
       <RouterProvider router={router} />
       <Toaster />
     </div>
