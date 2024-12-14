@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -23,8 +24,14 @@ const LoginPage = () => {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data) {
+      toast.success('Giriş işlemi başarılı.');
+      navigate('/');
+    }
+  };
 
   console.log(errors);
 

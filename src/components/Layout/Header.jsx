@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../redux/slices/themeSlice';
@@ -8,6 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useSelector((state) => state.cart);
   const { theme } = useSelector((state) => state.theme);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
@@ -73,13 +74,13 @@ const Header = () => {
             >
               <span>{theme}</span>
             </button>
-            <Link
-              to="/cart"
+            <button
               className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
+              onClick={() => navigate('/cart')}
             >
               <FaShoppingCart className="text-xl" />
               <span>{cartItems.length}</span>
-            </Link>
+            </button>
           </div>
         </div>
 
