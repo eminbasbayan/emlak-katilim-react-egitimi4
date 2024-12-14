@@ -6,7 +6,22 @@ const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
 
   function addToCart(product) {
-    setCartItems((prevCartItems) => [product, ...prevCartItems]);
+    const findProduct = cartItems.find((item) => item.id === product.id);
+
+    if (findProduct) {
+      const newCartItems = cartItems.map((cItem) => {
+        if (findProduct.id === cItem.id) {
+          return { ...cItem, quantity: cItem.quantity + 1 };
+        }
+        return cItem;
+      });
+      return setCartItems(newCartItems);
+    }
+
+    setCartItems((prevCartItems) => [
+      { ...product, quantity: 1 },
+      ...prevCartItems,
+    ]);
   }
 
   function deleteFromCart(cartItemId) {

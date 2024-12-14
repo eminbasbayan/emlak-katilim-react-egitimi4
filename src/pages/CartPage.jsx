@@ -6,7 +6,12 @@ import { CartContext } from '../context/CartContext';
 const CartPage = () => {
   const { cartItems, deleteFromCart } = useContext(CartContext);
 
-  const cartTotals = cartItems.reduce((toplam, item) => toplam + item.price, 0);
+  console.log(cartItems);
+
+  const cartTotals = cartItems.reduce(
+    (toplam, item) => toplam + item.price * item.quantity,
+    0
+  );
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -17,51 +22,45 @@ const CartPage = () => {
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Sepetteki Ürünler */}
-
-          {/* Sipariş Özeti */}
+          {cartItems.length === 0 && <p>Sepette hiç ürün yok!</p>}
           {cartItems.length !== 0 && (
             <Fragment>
               <div className="lg:col-span-2">
                 <div className="bg-white rounded-lg shadow-md p-6 mb-4">
                   {/* Örnek Ürün */}
-                  {cartItems.map(({ id, image, title, category, price }) => (
-                    <div
-                      className="flex items-center border-b border-gray-200 pb-4 mb-4"
-                      key={id}
-                    >
-                      <img
-                        src={image}
-                        alt="Ürün"
-                        className="w-24 h-24 object-contain"
-                      />
-                      <div className="flex-1 ml-4">
-                        <h3 className="text-lg font-semibold text-gray-800">
-                          {title}
-                        </h3>
-                        <p className="text-gray-600">Kategori: {category}</p>
-                        <div className="flex items-center mt-2">
-                          <select className="border rounded-md px-2 py-1 mr-4">
-                            {[1, 2, 3, 4, 5].map((num) => (
-                              <option key={num} value={num}>
-                                {num}
-                              </option>
-                            ))}
-                          </select>
-                          <span className="text-lg font-semibold text-indigo-600">
-                            {price} $
-                          </span>
-                        </div>
-                      </div>
-                      <button
-                        className="text-red-500 hover:text-red-700 
-                     ml-4"
-                        onClick={() => deleteFromCart(id)}
+                  {cartItems.map(
+                    ({ id, image, title, category, price, quantity }) => (
+                      <div
+                        className="flex items-center border-b border-gray-200 pb-4 mb-4"
+                        key={id}
                       >
-                        <FaTrash size={20} />
-                      </button>
-                    </div>
-                  ))}
+                        <img
+                          src={image}
+                          alt="Ürün"
+                          className="w-24 h-24 object-contain"
+                        />
+                        <div className="flex-1 ml-4">
+                          <h3 className="text-lg font-semibold text-gray-800">
+                            {title}
+                          </h3>
+                          <p className="text-gray-600">Kategori: {category}</p>
+                          <div className="flex items-center mt-2 gap-2">
+                            <span>{quantity} x</span>
+                            <span className="text-lg font-semibold text-indigo-600">
+                              {price} $
+                            </span>
+                          </div>
+                        </div>
+                        <button
+                          className="text-red-500 hover:text-red-700 
+                     ml-4"
+                          onClick={() => deleteFromCart(id)}
+                        >
+                          <FaTrash size={20} />
+                        </button>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
               <div className="lg:col-span-1">
