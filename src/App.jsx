@@ -8,11 +8,14 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/auth/LoginPage';
+import RegisterPage from './pages/auth/RegisterPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminProducts from './pages/admin/AdminProducts';
+import AdminLayout from './layouts/AdminLayout';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +45,20 @@ const router = createBrowserRouter([
       {
         path: '/product/:productId',
         element: <ProductDetailsPage />,
+      },
+    ],
+  },
+  {
+    path: '/admin',
+    element: <AdminLayout />,
+    children: [
+      {
+        path: 'dashboard',
+        element: <AdminDashboard />,
+      },
+      {
+        path: 'products',
+        element: <AdminProducts />,
       },
     ],
   },
