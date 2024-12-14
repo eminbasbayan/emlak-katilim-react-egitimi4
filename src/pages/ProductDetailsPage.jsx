@@ -4,6 +4,7 @@ import { FaStar, FaShoppingCart } from 'react-icons/fa';
 
 import Header from '../components/Layout/Header';
 import { useEffect, useState } from 'react';
+import ProductDetailsSkeleton from '../components/UI/ProductDetailsSkeleton';
 
 const ProductDetailsPage = () => {
   const [product, setProduct] = useState(null);
@@ -24,7 +25,13 @@ const ProductDetailsPage = () => {
     fetchProduct();
   }, [productId]);
 
-  if (!product) return <p>Ürün yükleniyor...</p>;
+  if (!product)
+    return (
+      <>
+        <Header />
+        <ProductDetailsSkeleton />
+      </>
+    );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -55,7 +62,9 @@ const ProductDetailsPage = () => {
                       {product?.rating?.rate}
                     </span>
                   </div>
-                  <span className="text-gray-500">({product?.rating?.count} değerlendirme)</span>
+                  <span className="text-gray-500">
+                    ({product?.rating?.count} değerlendirme)
+                  </span>
                 </div>
               </div>
 
