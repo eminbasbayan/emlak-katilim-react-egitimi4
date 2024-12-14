@@ -6,6 +6,8 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
+import { useContext } from 'react';
+import { ThemeContext } from './context/ThemeContext';
 
 const router = createBrowserRouter([
   {
@@ -31,8 +33,15 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
+  const appStyle = {
+    backgroundColor: theme === 'light' ? '#ffffff' : '#1F2937',
+    color: theme === 'light' ? '#1F2937' : '#ffffff',
+    transition: 'all 0.3s ease',
+  };
   return (
-    <div className="app container mx-auto">
+    <div className="app container mx-auto" style={appStyle}>
       <RouterProvider router={router} />
       <Toaster />
     </div>

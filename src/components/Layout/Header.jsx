@@ -2,10 +2,12 @@ import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useContext(CartContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -64,6 +66,12 @@ const Header = () => {
 
           {/* Shopping Cart */}
           <div className="flex items-center">
+            <button
+              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
+              onClick={toggleTheme}
+            >
+              <span>{theme}</span>
+            </button>
             <Link
               to="/cart"
               className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100 flex gap-1"
