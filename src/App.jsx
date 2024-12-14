@@ -15,6 +15,7 @@ function App() {
   };
   return (
     <div className="app container mx-auto" style={appStyle}>
+      <h1 className="text-4xl font-bold">Emlak Katılım React Eğitimi</h1>
       <RouterProvider router={router} />
       <Toaster />
     </div>
