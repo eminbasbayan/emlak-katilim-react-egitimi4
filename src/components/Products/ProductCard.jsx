@@ -4,19 +4,30 @@ import Button from '../UI/Button';
 import './ProductCard.css';
 import { addToCart } from '../../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function ProductCard(props) {
   const { onDeleteItem, ...product } = props;
   const { id, title, image, price, description, category, rating } = product;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   return (
     <div className="product-card">
-      <div className="product-image">
-        <img src={image} alt={title} />
+      <div className="product-image cursor-pointer">
+        <img
+          src={image}
+          alt={title}
+          onClick={() => navigate(`/product/${id}`)}
+        />
       </div>
       <div className="product-bottom">
-        <b className="product-title">{title}</b>
+        <b
+          className="product-title cursor-pointer"
+          onClick={() => navigate(`/product/${id}`)}
+        >
+          {title}
+        </b>
         <p className="product-description">{description}</p>
         <span className="product-price">{price}₺</span>
         <div className="buttons">

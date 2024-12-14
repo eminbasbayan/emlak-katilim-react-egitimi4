@@ -30,7 +30,6 @@ function Products() {
       dispatch(reduxFetchProducts());
     }
   }, [loading, dispatch]);
-  console.log(loading);
 
   return (
     <div className="products">
