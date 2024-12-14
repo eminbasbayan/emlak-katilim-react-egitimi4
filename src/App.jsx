@@ -1,82 +1,9 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Toaster } from 'react-hot-toast';
 
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import HomePage from './pages/HomePage';
-import ProductsPage from './pages/ProductsPage';
-import CartPage from './pages/CartPage';
-import LoginPage from './pages/auth/LoginPage';
-import RegisterPage from './pages/auth/RegisterPage';
-import ProductDetailsPage from './pages/ProductDetailsPage';
-import MainLayout from './layouts/MainLayout';
-import AuthLayout from './layouts/AuthLayout';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import AdminProducts from './pages/admin/AdminProducts';
-import AdminLayout from './layouts/AdminLayout';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainLayout />,
-    children: [
-      {
-        path: '/',
-        element: <HomePage />,
-      },
-      {
-        path: '/products',
-        element: <ProductsPage />,
-      },
-      {
-        path: '/about',
-        element: <AboutPage />,
-      },
-      {
-        path: '/contact',
-        element: <ContactPage />,
-      },
-      {
-        path: '/cart',
-        element: <CartPage />,
-      },
-      {
-        path: '/product/:productId',
-        element: <ProductDetailsPage />,
-      },
-    ],
-  },
-  {
-    path: '/admin',
-    element: <AdminLayout />,
-    children: [
-      {
-        path: 'dashboard',
-        element: <AdminDashboard />,
-      },
-      {
-        path: 'products',
-        element: <AdminProducts />,
-      },
-    ],
-  },
-  {
-    path: '/auth',
-    element: <AuthLayout />,
-    children: [
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
-      {
-        path: 'register',
-        element: <RegisterPage />,
-      },
-    ],
-  },
-]);
+import router from './routes/routes';
 
 function App() {
   const { theme } = useSelector((state) => state.theme);
