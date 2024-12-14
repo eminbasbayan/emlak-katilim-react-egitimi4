@@ -7,6 +7,9 @@ const HomePage = () => {
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div className="mb-8 lg:mb-0">
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+                <h1 className="text-4xl font-bold">
+                  Emlak Katılım React Eğitimi
+                </h1>
                 <span className="block">Modern E-Ticaret</span>
                 <span className="block text-indigo-600">Deneyimi</span>
               </h1>
