@@ -1,10 +1,8 @@
-import Header from '../components/Layout/Header';
 import { FaUsers, FaHistory, FaAward } from 'react-icons/fa';
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12">

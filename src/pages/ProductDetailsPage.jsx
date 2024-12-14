@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { FaStar, FaShoppingCart } from 'react-icons/fa';
 
-import Header from '../components/Layout/Header';
 import { useEffect, useState } from 'react';
 import ProductDetailsSkeleton from '../components/UI/ProductDetailsSkeleton';
 
@@ -25,18 +24,10 @@ const ProductDetailsPage = () => {
     fetchProduct();
   }, [productId]);
 
-  if (!product)
-    return (
-      <>
-        <Header />
-        <ProductDetailsSkeleton />
-      </>
-    );
+  if (!product) return <ProductDetailsSkeleton />;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-
       <div className="container mx-auto px-4 py-8">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="grid md:grid-cols-2 gap-8 p-8">

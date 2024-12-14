@@ -1,4 +1,3 @@
-import Header from "../components/Layout/Header";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const ContactPage = () => {
@@ -9,21 +8,24 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-      
       {/* İletişim Başlık Bölümü */}
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-2">Bizimle İletişime Geçin</h1>
-        <p className="text-center text-gray-600 mb-12">Sorularınız için bize ulaşın, en kısa sürede dönüş yapacağız.</p>
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-2">
+          Bizimle İletişime Geçin
+        </h1>
+        <p className="text-center text-gray-600 mb-12">
+          Sorularınız için bize ulaşın, en kısa sürede dönüş yapacağız.
+        </p>
 
         {/* İletişim Bilgileri ve Form Grid */}
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          
           {/* İletişim Bilgileri */}
           <div className="space-y-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-800">İletişim Bilgilerimiz</h2>
-              
+              <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                İletişim Bilgilerimiz
+              </h2>
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <FaPhone className="text-indigo-600 text-xl mt-1" />
@@ -45,7 +47,11 @@ const ContactPage = () => {
                   <FaMapMarkerAlt className="text-indigo-600 text-xl mt-1" />
                   <div>
                     <h3 className="font-medium text-gray-800">Adres</h3>
-                    <p className="text-gray-600">Merkez Mahallesi, Atatürk Caddesi No:123<br />İstanbul, Türkiye</p>
+                    <p className="text-gray-600">
+                      Merkez Mahallesi, Atatürk Caddesi No:123
+                      <br />
+                      İstanbul, Türkiye
+                    </p>
                   </div>
                 </div>
               </div>
@@ -54,10 +60,15 @@ const ContactPage = () => {
 
           {/* İletişim Formu */}
           <div className="bg-white p-8 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Mesaj Gönderin</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+              Mesaj Gönderin
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Adınız Soyadınız
                 </label>
                 <input
@@ -69,7 +80,10 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   E-posta Adresiniz
                 </label>
                 <input
@@ -81,7 +95,10 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Mesajınız
                 </label>
                 <textarea
